@@ -14,9 +14,6 @@ public class MyTrack implements Track {
 
     private Logger logger = LoggerFactory.getLogger(MyTrack.class);
 
-    private int panelWidth = 400;
-    private int panelHeight = 400;
-
     private List<Boundary> walls;
     private List<Boundary> checkpoints;
 
@@ -30,47 +27,47 @@ public class MyTrack implements Track {
         walls = new ArrayList<>();
         checkpoints = new ArrayList<>();
 
-        walls.add(new Boundary(new PVector(10, 10), new PVector(10, panelHeight - 10)));
-        walls.add(new Boundary(new PVector(10, panelHeight - 10), new PVector(panelWidth - 10, panelHeight - 10)));
-        walls.add(new Boundary(new PVector(panelWidth - 10, panelHeight - 10), new PVector(panelWidth - 10, 10)));
-        walls.add(new Boundary(new PVector(panelWidth - 10, 10), new PVector(10, 10)));
+        walls.add(new Boundary(new PVector(0.05, 0.05), new PVector(0.05, 1 - 0.05)));
+        walls.add(new Boundary(new PVector(0.05, 1 - 0.05), new PVector(1 - 0.05, 1 - 0.05)));
+        walls.add(new Boundary(new PVector(1 - 0.05, 1 - 0.05), new PVector(1 - 0.05, 0.05)));
+        walls.add(new Boundary(new PVector(1 - 0.05, 0.05), new PVector(0.05, 0.05)));
 
-        walls.add(new Boundary(new PVector(70, 70), new PVector(70, panelHeight - 70)));
-        walls.add(new Boundary(new PVector(70, panelHeight - 70), new PVector(panelWidth - 70, panelHeight - 70)));
-        walls.add(new Boundary(new PVector(panelWidth - 70, panelHeight - 70), new PVector(panelWidth - 70, 70)));
-        walls.add(new Boundary(new PVector(panelWidth - 70, 70), new PVector(70, 70)));
+        walls.add(new Boundary(new PVector(0.2, 0.2), new PVector(0.2, 1 - 0.2)));
+        walls.add(new Boundary(new PVector(0.2, 1 - 0.2), new PVector(1 - 0.2, 1 - 0.2)));
+        walls.add(new Boundary(new PVector(1 - 0.2, 1 - 0.2), new PVector(1 - 0.2, 0.2)));
+        walls.add(new Boundary(new PVector(1 - 0.2, 0.2), new PVector(0.2, 0.2)));
 
         // creating checkpoints
-        checkpoints.add(new Boundary(new PVector(10, 10), new PVector(70, 70)));
+        checkpoints.add(new Boundary(new PVector(0.05, 0.05), new PVector(0.2, 0.2)));
 
-        checkpoints.add(new Boundary(new PVector(10, (panelHeight - 20) / 4), new PVector(70, (panelHeight - 20) / 4)));
+        checkpoints.add(new Boundary(new PVector(0.05, 0.05 + (1 - 0.1) / 4), new PVector(0.2, 0.05 + (1 - 0.1) / 4)));
         checkpoints.add(new Boundary(walls.get(0).midPoint(), walls.get(4).midPoint()));
         checkpoints.add(
-                new Boundary(new PVector(10, (panelHeight - 20) * 3 / 4), new PVector(70, (panelHeight - 20) * 3 / 4)));
+                new Boundary(new PVector(0.05, 0.05 + (1 - 0.1) * 3 / 4), new PVector(0.2, 0.05 + (1 - 0.1) * 3 / 4)));
 
-        checkpoints.add(new Boundary(new PVector(10, panelHeight - 10), new PVector(70, panelHeight - 70)));
+        checkpoints.add(new Boundary(new PVector(0.05, 1 - 0.05), new PVector(0.2, 1 - 0.2)));
 
-        checkpoints.add(new Boundary(new PVector((panelWidth - 20) / 4, panelHeight - 70),
-                new PVector((panelWidth - 20) / 4, panelHeight - 10)));
+        checkpoints.add(new Boundary(new PVector(0.05 + (1 - 0.1) / 4, 1 - 0.2),
+                new PVector(0.05 + (1 - 0.1) / 4, 1 - 0.05)));
         checkpoints.add(new Boundary(walls.get(1).midPoint(), walls.get(5).midPoint()));
-        checkpoints.add(new Boundary(new PVector((panelWidth - 20) * 3 / 4, panelHeight - 70),
-                new PVector((panelWidth - 20) * 3 / 4, panelHeight - 10)));
+        checkpoints.add(new Boundary(new PVector(0.05 + (1 - 0.1) * 3 / 4, 1 - 0.2),
+                new PVector(0.05 + (1 - 0.1) * 3 / 4, 1 - 0.05)));
 
-        checkpoints.add(new Boundary(new PVector(panelWidth - 10, panelHeight - 10),
-                new PVector(panelWidth - 70, panelHeight - 70)));
+        checkpoints.add(new Boundary(new PVector(1 - 0.05, 1 - 0.05),
+                new PVector(1 - 0.2, 1 - 0.2)));
 
-        checkpoints.add(new Boundary(new PVector(panelWidth - 10, (panelHeight - 20) * 3 / 4),
-                new PVector(panelWidth - 70, (panelHeight - 20) * 3 / 4)));
+        checkpoints.add(new Boundary(new PVector(1 - 0.05, 0.05 + (1 - 0.1) * 3 / 4),
+                new PVector(1 - 0.2, 0.05 + (1 - 0.1) * 3 / 4)));
         checkpoints.add(new Boundary(walls.get(2).midPoint(), walls.get(6).midPoint()));
-        checkpoints.add(new Boundary(new PVector(panelWidth - 10, (panelHeight - 20) / 4),
-                new PVector(panelWidth - 70, (panelHeight - 20) / 4)));
+        checkpoints.add(new Boundary(new PVector(1 - 0.05, 0.05 + (1 - 0.1) / 4),
+                new PVector(1 - 0.2, 0.05 + (1 - 0.1) / 4)));
 
-        checkpoints.add(new Boundary(new PVector(panelWidth - 10, 10), new PVector(panelWidth - 70, 70)));
+        checkpoints.add(new Boundary(new PVector(1 - 0.05, 0.05), new PVector(1 - 0.2, 0.2)));
 
         checkpoints.add(
-                new Boundary(new PVector((panelWidth - 20) * 3 / 4, 70), new PVector((panelWidth - 20) * 3 / 4, 10)));
+                new Boundary(new PVector(0.05 + (1 - 0.1) * 3 / 4, 0.2), new PVector(0.05 + (1 - 0.1) * 3 / 4, 0.05)));
         checkpoints.add(new Boundary(walls.get(3).midPoint(), walls.get(7).midPoint()));
-        checkpoints.add(new Boundary(new PVector((panelWidth - 20) / 4, 70), new PVector((panelWidth - 20) / 4, 10)));
+        checkpoints.add(new Boundary(new PVector(0.05 + (1 - 0.1) / 4, 0.2), new PVector(0.05 + (1 - 0.1) / 4, 0.05)));
     
         logger.info("Track created");
     }
@@ -81,18 +78,13 @@ public class MyTrack implements Track {
     }
 
     @Override
-    public PVector getEnd() {
-        return null;
-    }
-
-    @Override
     public PVector getStart() {
         return checkpoints.get(0).midPoint();
     }
 
     @Override
     public PVector getStartVelocity() {
-        return new PVector(-1, 1);
+        return new PVector(-1/400d, 1/400d).normalize();
     }
 
     @Override
