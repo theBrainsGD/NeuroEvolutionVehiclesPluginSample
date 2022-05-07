@@ -56,10 +56,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: target/NeuroEvolutionDemoPlugins.jar
-        asset_name: NeuroEvolutionDemoPlugins.jar
+        file: target/NeuroEvolutionDemoPlugin.jar
+        asset_name: NeuroEvolutionDemoPlugin.jar
         prerelease: true
         overwrite: true
         tag: latest
         release_name: Automatic Prerelease Build
-        body: This release is an automatic build from the master branch.
+        body: This release is an automatic build from the main branch.
