@@ -56,7 +56,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: target/NeuroEvolutionPlugins.jar
+        file: target/NeuroEvolutionDemoPlugins.jar
         asset_name: NeuroEvolutionDemoPlugins.jar
         prerelease: true
         overwrite: true
