@@ -10,6 +10,10 @@ import com.JayPi4c.NeuroEvolution.plugins.util.PVector;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Any class that implements the Track interface will be found by the
+ * pluginLoader of the NeuroEvolutionDemo application.
+ */
 public class MyTrack implements Track {
 
     private Logger logger = LoggerFactory.getLogger(MyTrack.class);
@@ -68,7 +72,7 @@ public class MyTrack implements Track {
                 new Boundary(new PVector(0.05 + (1 - 0.1) * 3 / 4, 0.2), new PVector(0.05 + (1 - 0.1) * 3 / 4, 0.05)));
         checkpoints.add(new Boundary(walls.get(3).midPoint(), walls.get(7).midPoint()));
         checkpoints.add(new Boundary(new PVector(0.05 + (1 - 0.1) / 4, 0.2), new PVector(0.05 + (1 - 0.1) / 4, 0.05)));
-    
+
         logger.info("Track created");
     }
 
@@ -84,7 +88,7 @@ public class MyTrack implements Track {
 
     @Override
     public PVector getStartVelocity() {
-        return new PVector(-1/400d, 1/400d).normalize();
+        return new PVector(-1 / 400d, 1 / 400d).normalize();
     }
 
     @Override
